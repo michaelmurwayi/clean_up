@@ -2,6 +2,8 @@ import logging
 import sys
 
 from config.setting import settings
+from src.services.discovery import FolderDiscovery
+
 
 def setup_logging():
     logging.basicConfig(
@@ -16,7 +18,11 @@ def setup_logging():
 def run_scan():
     logger = logging.getLogger(__name__) 
     try:
-        pass
+
+        Target_Directories = settings.scan_directory
+        for directory in Target_Directories:
+            folder_discovery = FolderDiscovery(directory)
+            folder_discovery.get_all_folders()
     except KeyboardInterrupt:
         logging.warning("scan interupted by user")
         sys.exit(1)

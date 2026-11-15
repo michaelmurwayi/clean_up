@@ -6,7 +6,7 @@ class Settings(BaseSettings):
 
     app_name: str = "Local File Checker"
 
-    scan_directory: list = ["~/Documents", "~/Downloads", "~/Pictures"]
+    scan_directory: list = ["/Documents", "/Downloads", "/Pictures"]
 
     database_url: str = "sqlite:///./file_checker.db"
 
